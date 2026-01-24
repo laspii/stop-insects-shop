@@ -1,0 +1,194 @@
+:root {
+    --primary-color: #3b82f6; /* Медицинский синий */
+    --bg-color: var(--tg-theme-bg-color, #ffffff);
+    --text-color: var(--tg-theme-text-color, #000000);
+    --secondary-bg: var(--tg-theme-secondary-bg-color, #f4f4f5);
+    --hint-color: var(--tg-theme-hint-color, #999999);
+    --button-color: var(--tg-theme-button-color, #3b82f6);
+    --button-text: var(--tg-theme-button-text-color, #ffffff);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--bg-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--secondary-bg);
+}
+
+.brand-title {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.lang-switch {
+    background: var(--secondary-bg);
+    border-radius: 8px;
+    padding: 2px;
+}
+
+.lang-btn {
+    border: none;
+    background: transparent;
+    color: var(--hint-color);
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.lang-btn.active {
+    background: var(--bg-color);
+    color: var(--text-color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.hero-text {
+    padding: 20px 15px 10px;
+    font-size: 14px;
+    color: var(--hint-color);
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
+    padding-bottom: 80px; /* Отступ для кнопки Telegram */
+}
+
+.card {
+    background: var(--secondary-bg);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+}
+
+.card-desc {
+    font-size: 12px;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.card-marketing {
+    font-size: 11px;
+    color: var(--hint-color);
+    font-style: italic;
+    margin-bottom: 12px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.add-btn {
+    background-color: var(--button-color);
+    color: var(--button-text);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Счетчик количества */
+.qty-control {
+    display: flex;
+    align-items: center;
+    background: var(--bg-color);
+    border-radius: 8px;
+}
+
+.qty-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    color: var(--button-color);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.qty-val {
+    width: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.hidden { display: none; }
+
+/* Формы оформления */
+#checkout-view {
+    padding: 20px;
+    padding-bottom: 80px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--hint-color);
+    border-radius: 8px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+h2, h3 { margin-top: 0; }
+h3 { font-size: 16px; margin-bottom: 10px; margin-top: 20px; }
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-size: 14px;
+}
