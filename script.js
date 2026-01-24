@@ -71,7 +71,7 @@ const products = [
     {
         id: 'pro', price: 1800, tag: { uk: 'Pro', ru: 'Pro' },
         price: 1600,
-        img: 'https://github.com/laspii/stop-insects-shop/fl-metod-10.jpg', // Сюда вставьте ссылку на ваше фото
+        img: 'https://github.com/laspii/stop-insects-shop/fl-metod-10.jpeg', // Сюда вставьте ссылку на ваше фото
         title: { uk: 'Набір "Професійний"', ru: 'Набор "Профессиональный"' },
         desc: { uk: '20 флаконів. Тотальна зачистка.', ru: '20 флаконов. Тотальная зачистка.' },
         marketing: { uk: 'Повний контроль.', ru: 'Полный контроль.' }
@@ -79,7 +79,7 @@ const products = [
      {
         id: 'respirator', price: 50,
         price: 450,
-        img: 'https://github.com/laspii/stop-insects-shop/fl-metod-20.jpg', // Сюда вставьте ссылку на ваше фото
+        img: 'https://github.com/laspii/stop-insects-shop/fl-metod-20.jpeg', // Сюда вставьте ссылку на ваше фото
         title: { uk: 'Респіратор', ru: 'Респиратор' },
         desc: { uk: "Захист дихання.", ru: 'Защита дыхания.' },
         marketing: { uk: 'Безпека.', ru: 'Безопасность.' }
