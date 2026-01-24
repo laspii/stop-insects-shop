@@ -274,58 +274,93 @@ function submitOrder() {
     });
 }
 
-// ГЕНЕРАЦИЯ PDF
+// ГЕНЕРАЦИЯ PDF (Исправленная и защищенная версия)
 function downloadPDF() {
-    if (!lastOrderData) return;
-    
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-    
-    const d = lastOrderData;
-    let y = 10;
+    try {
+        // 1. Проверка данных
+        if (!lastOrderData) {
+            tg.showAlert("Помилка: Дані замовлення відсутні.");
+            return;
+        }
 
-    // ВАЖНО: jsPDF по умолчанию не поддерживает кириллицу.
-    // Для реального проекта нужно подключать шрифт (Base64).
-    // Здесь используем транслитерацию или английский для заголовков, чтобы не было кракозябр.
-    
-    doc.setFontSize(18);
-    doc.text(`Order #${d.orderId}`, 10, y);
-    y += 10;
-    
-    doc.setFontSize(12);
-    doc.text(`Date: ${new Date().toLocaleDateString()}`, 10, y);
-    y += 10;
-    doc.text("------------------------------------------------", 10, y);
-    y += 10;
+        // 2. Проверка библиотеки
+        if (!window.jspdf) {
+            tg.showAlert("Помилка: Бібліотека PDF не завантажена. Перевірте інтернет.");
+            return;
+        }
+        
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        
+        const d = lastOrderData;
+        let y = 10;
 
-    doc.text(`Customer: ${transliterate(d.contact.name)}`, 10, y);
-    y += 7;
-    doc.text(`Phone: ${d.contact.phone}`, 10, y);
-    y += 7;
-    doc.text(`City: ${transliterate(d.contact.city)}`, 10, y);
-    y += 7;
-    doc.text(`Branch: ${transliterate(d.contact.branch)}`, 10, y);
-    y += 10;
-    
-    doc.text("------------------------------------------------", 10, y);
-    y += 10;
-    
-    doc.text("Items:", 10, y);
-    y += 7;
-    
-    d.cart.forEach(item => {
-        // Транслитерируем название товара для PDF
-        const title = transliterate(item.title);
-        doc.text(`${title} x${item.qty} - ${item.price * item.qty} UAH`, 10, y);
+        // 3. Формирование чека (ИСПОЛЬЗУЕМ ТОЛЬКО ЛАТИНИЦУ/ТРАНСЛИТ)
+        // Кириллица без подключения шрифта сломает PDF, поэтому используем транслит
+        
+        doc.setFontSize(16);
+        doc.text(`Order #${d.orderId}`, 10, y);
+        y += 10;
+        
+        doc.setFontSize(10);
+        doc.text(`Date: ${new Date().toLocaleDateString()}`, 10, y);
+        y += 10;
+        doc.text("------------------------------------------------", 10, y);
+        y += 10;
+
+        // Блок клиента
+        doc.text(`Customer: ${transliterate(d.contact.name)}`, 10, y);
         y += 7;
-    });
-    
-    y += 5;
-    doc.setFontSize(14);
-    doc.text(`TOTAL: ${d.totalSum} UAH`, 10, y);
+        doc.text(`Phone: ${d.contact.phone}`, 10, y);
+        y += 7;
+        // Проверка на случай пустых полей
+        const safeCity = d.contact.city ? transliterate(d.contact.city) : "";
+        const safeBranch = d.contact.branch ? transliterate(d.contact.branch) : "";
+        
+        doc.text(`City: ${safeCity}`, 10, y);
+        y += 7;
+        doc.text(`Branch: ${safeBranch}`, 10, y);
+        y += 10;
+        
+        doc.text("------------------------------------------------", 10, y);
+        y += 10;
+        
+        doc.text("Items:", 10, y);
+        y += 7;
+        
+        // Блок товаров
+        d.cart.forEach(item => {
+            // Очищаем название от лишних символов и транслитерируем
+            const cleanTitle = item.title ? transliterate(item.title) : "Item";
+            const line = `${cleanTitle} x${item.qty} - ${item.price * item.qty} UAH`;
+            
+            // Если строка слишком длинная, обрезаем
+            if (line.length > 40) {
+                 doc.text(line.substring(0, 40) + "...", 10, y);
+            } else {
+                 doc.text(line, 10, y);
+            }
+            y += 7;
+        });
+        
+        y += 5;
+        doc.setFontSize(14);
+        doc.text(`TOTAL: ${d.totalSum} UAH`, 10, y);
+        
+        y += 10;
+        doc.setFontSize(10);
+        doc.text("Dyakuyemo za zamovlennya!", 10, y); // Спасибо за заказ транслитом
 
-    doc.save(`Order_${d.orderId}.pdf`);
+        // 4. Сохранение
+        doc.save(`Order_${d.orderId}.pdf`);
+
+    } catch (error) {
+        // Если произошла ошибка, показываем её пользователю
+        tg.showAlert("Помилка створення PDF: " + error.message);
+        console.error(error);
+    }
 }
+
 
 function closeApp() {
     tg.close();
