@@ -55,7 +55,7 @@ const products = [
     {
         id: 'basic', price: 450, tag: { uk: 'Старт', ru: 'Старт' },
         price: 450,
-        img: 'https://github.com/laspii/stop-insects-shop/fl-metod-01.png', // Сюда вставьте ссылку на ваше фото
+        img: 'https://github.com/laspii/stop-insects-shop/flakon01.jpg', // Сюда вставьте ссылку на ваше фото
         title: { uk: 'Набір "Базовий"', ru: 'Набор "Базовый"' },
         desc: { uk: '6 флаконів. Локальна обробка.', ru: '6 флаконов. Локальная обработка.' },
         marketing: { uk: 'Швидкий старт.', ru: 'Быстрый старт.' }
@@ -63,7 +63,7 @@ const products = [
     {
         id: 'reinforced', price: 900, tag: { uk: 'Хіт', ru: 'Хит' },
         price: 850,
-        img: 'https://github.com/laspii/stop-insects-shop/fl-metod-05.png', // Сюда вставьте ссылку на ваше фото
+        img: 'https://github.com/laspii/stop-insects-shop/flakon02.jpg', // Сюда вставьте ссылку на ваше фото
         title: { uk: 'Набір "Посилений"', ru: 'Набор "Усиленный"' },
         desc: { uk: '12 флаконів. 1 кімната.', ru: '12 флаконов. 1 комната.' },
         marketing: { uk: 'Максимальна сила.', ru: 'Максимальная сила.' }
@@ -71,7 +71,7 @@ const products = [
     {
         id: 'pro', price: 1800, tag: { uk: 'Pro', ru: 'Pro' },
         price: 1600,
-        img: 'https://github.com/laspii/stop-insects-shop/fl-metod-10.jpeg', // Сюда вставьте ссылку на ваше фото
+        img: 'https://github.com/laspii/stop-insects-shop/flakon10.jpg', // Сюда вставьте ссылку на ваше фото
         title: { uk: 'Набір "Професійний"', ru: 'Набор "Профессиональный"' },
         desc: { uk: '20 флаконів. Тотальна зачистка.', ru: '20 флаконов. Тотальная зачистка.' },
         marketing: { uk: 'Повний контроль.', ru: 'Полный контроль.' }
@@ -79,7 +79,7 @@ const products = [
      {
         id: 'respirator', price: 50,
         price: 450,
-        img: 'https://github.com/laspii/stop-insects-shop/fl-metod-20.jpeg', // Сюда вставьте ссылку на ваше фото
+        img: 'https://github.com/laspii/stop-insects-shop/respirator.webp', // Сюда вставьте ссылку на ваше фото
         title: { uk: 'Респіратор', ru: 'Респиратор' },
         desc: { uk: "Захист дихання.", ru: 'Защита дыхания.' },
         marketing: { uk: 'Безпека.', ru: 'Безопасность.' }
