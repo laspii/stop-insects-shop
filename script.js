@@ -132,8 +132,11 @@ function renderProducts() {
 
         const card = document.createElement('div');
         card.className = 'card';
+        // Внутри renderProducts, перед созданием card.innerHTML
+        const imgHtml = p.img ? `<img src="${p.img}" alt="${p.title[currentLang]}" style="width:100%; height:150px; object-fit:contain; margin-bottom:10px; border-radius:8px;">` : '';
         card.innerHTML = `
             ${tagHtml}
+            ${imgHtml}
             <h3 class="card-title">${p.title[currentLang]}</h3>
             <div class="card-desc">${p.desc[currentLang]}</div>
             <div class="card-marketing">${p.marketing[currentLang]}</div>
