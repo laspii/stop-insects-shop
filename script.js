@@ -2,7 +2,7 @@ const tg = window.Telegram.WebApp;
 tg.expand();
 
 // ВСТАВЬТЕ СЮДА ВАШ URL ИЗ ШАГА 1
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/ВАШ_ДЛИННЫЙ_ID/exec'; 
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyt4Bu9kWjYjzfEKXf8c8Wv05aMB2Z8BqUT8xQIsx8JtSEfyMrOTOuSnq8bRMBowIlm/exec'; 
 
 let currentLang = 'uk';
 let cart = {}; 
