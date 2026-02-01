@@ -155,10 +155,16 @@ function addToCart(id) {
 
 function updateQty(id, delta) {
     cart[id] += delta;
-    if (cart[id] <= 0) delete cart[id];
-    renderProducts();
-    updateCartButton();
-    if (!document.getElementById('checkout-view').classList.contains('hidden')) renderCartSummary();
+    if (cart[id] <= 0) {
+        delete cart[id];
+    }
+    renderProducts();       // Обновляет цифру между плюсом и минусом в карточке
+    updateCartButton();     // <--- Обновляет общую сумму на синей кнопке внизу
+    
+    // Если мы сейчас находимся на экране оформления (корзине), обновляем и список там
+    if (!document.getElementById('checkout-view').classList.contains('hidden')) {
+        renderCartSummary();
+    }
 }
 
 function updateCartButton() {
