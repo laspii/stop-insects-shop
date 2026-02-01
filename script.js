@@ -431,5 +431,23 @@ function closeImage() {
     document.getElementById('image-viewer').classList.add('hidden'); // Скрываем
 }
 
+// --- ЛОГИКА ДЛЯ БРАУЗЕРА (SEO) ---
+function checkEnvironment() {
+    const seoBanner = document.getElementById('seo-banner');
+    
+    // tg.initData есть только если мы открыли внутри Telegram
+    // Если строки нет, значит мы в обычном браузере
+    if (!tg.initData) {
+        seoBanner.classList.remove('hidden');
+        
+        // Дополнительно: можно скрыть кнопку "Оформить заказ" в браузере, 
+        // чтобы заставить людей переходить в бот (опционально)
+        // document.getElementById('sticky-footer').style.display = 'none';
+    }
+}
+
+// Запускаем проверку при загрузке
+checkEnvironment();
+
 
 setLanguage('uk');
