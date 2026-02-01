@@ -27,7 +27,10 @@ const translations = {
         total: "Разом",
         processing: "Відправка...",
         successTitle: "Замовлення прийнято!",
-        successDesc: "Дані успішно передані менеджеру."
+        successDesc: "Дані успішно передані менеджеру.",
+        pdfTitle: "Звіт та Інструкція",
+        pdfDesc: "Доказова база: як засіб знищує клопів та їхні яйця. Покроковий план.",
+        pdfBtn: "📄 Завантажити звіт (PDF)"
     },
     ru: {
         brand: "Служба восстановления дома",
@@ -47,7 +50,10 @@ const translations = {
         total: "Итого",
         processing: "Отправка...",
         successTitle: "Заказ принят!",
-        successDesc: "Данные успешно переданы менеджеру."
+        successDesc: "Данные успешно переданы менеджеру.",
+        pdfTitle: "Отчет и Инструкция",
+        pdfDesc: "Доказательная база: как средство уничтожает клопов и их яйца. Пошаговый план.",
+        pdfBtn: "📄 Скачать отчет (PDF)"
     }
 };
 
@@ -119,6 +125,11 @@ function setLanguage(lang) {
     document.getElementById('cityInput').placeholder = t.cityPlace;
     document.getElementById('branchInput').placeholder = t.branchPlace;
 
+    if(document.getElementById('pdfTitle')) {
+        document.getElementById('pdfTitle').textContent = t.pdfTitle;
+        document.getElementById('pdfDesc').textContent = t.pdfDesc;
+        document.getElementById('pdfBtn').textContent = t.pdfBtn;
+    }
     renderProducts();
     updateCartButton();
     if (!document.getElementById('checkout-view').classList.contains('hidden')) renderCartSummary();
