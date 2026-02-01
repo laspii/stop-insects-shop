@@ -145,7 +145,7 @@ function renderProducts() {
         const card = document.createElement('div');
         card.className = 'card';
         // Внутри renderProducts, перед созданием card.innerHTML
-        const imgHtml = p.img ? `<img src="${p.img}" alt="${p.title[currentLang]}" style="width:100%; height:150px; object-fit:contain; margin-bottom:10px; border-radius:8px;">` : '';
+        const imgHtml = p.img ? `<img src="${p.img}" onclick="openImage('${p.img}')" alt="${p.title[currentLang]}" style="width:100%; height:150px; object-fit:contain; margin-bottom:10px; border-radius:8px; cursor:pointer;">` : '';
         card.innerHTML = `
             ${tagHtml}
             ${imgHtml}
@@ -416,5 +416,20 @@ function transliterate(word) {
         return a[char] || char; 
     }).join("");
 }
+
+// --- ФУНКЦІЇ ДЛЯ ФОТО ---
+
+function openImage(imgSrc) {
+    const viewer = document.getElementById('image-viewer');
+    const fullImg = document.getElementById('full-image');
+    
+    fullImg.src = imgSrc; // Вставляем ссылку на картинку
+    viewer.classList.remove('hidden'); // Показываем окно
+}
+
+function closeImage() {
+    document.getElementById('image-viewer').classList.add('hidden'); // Скрываем
+}
+
 
 setLanguage('uk');
