@@ -146,47 +146,71 @@ function renderProducts() {
     });
 }
 
+// Надежная функция добавления
 function addToCart(id) {
-    if (!cart[id]) cart[id] = 0;
-    cart[id]++;
+    // Если товара нет, ставим 0, иначе берем текущее число
+    let currentQty = cart[id] ? parseInt(cart[id]) : 0;
+    
+    // Прибавляем 1
+    cart[id] = currentQty + 1;
+    
+    // Обновляем интерфейс
     renderProducts();
     updateCartButton();
 }
 
+// Надежная функция обновления количества
 function updateQty(id, delta) {
-    cart[id] += delta;
+    // 1. Принудительно делаем числом, чтобы избежать глюков со строками
+    let currentQty = cart[id] ? parseInt(cart[id]) : 0;
+    let newQty = currentQty + delta;
+
+    // 2. Обновляем корзину
+    cart[id] = newQty;
+
+    // Если стало 0 или меньше — удаляем
     if (cart[id] <= 0) {
         delete cart[id];
     }
-    renderProducts();       // Обновляет цифру между плюсом и минусом в карточке
-    updateCartButton();     // <--- Обновляет общую сумму на синей кнопке внизу
+
+    // 3. Сначала отрисовываем карточки товаров
+    renderProducts();
     
-    // Если мы сейчас находимся на экране оформления (корзине), обновляем и список там
-    if (!document.getElementById('checkout-view').classList.contains('hidden')) {
-        renderCartSummary();
-    }
+    // 4. Потом считаем итоговую сумму
+    updateCartButton();
 }
 
+// Надежный пересчет кнопки
 function updateCartButton() {
     const t = translations[currentLang];
     let totalSum = 0;
+    
+    // Перебираем корзину
     for (const [id, qty] of Object.entries(cart)) {
         const product = products.find(p => p.id === id);
-        if (product) totalSum += product.price * qty;
+        if (product) {
+            // Убеждаемся, что умножаем числа
+            totalSum += product.price * parseInt(qty);
+        }
     }
 
+    // Логика отображения кнопки
+    const tgBtn = window.Telegram.WebApp.MainButton;
+    
     if (totalSum > 0) {
         if (document.getElementById('checkout-view').classList.contains('hidden')) {
-            tg.MainButton.setText(`${t.mainBtnOrder} (${totalSum} ${t.currency})`);
-            tg.MainButton.onClick(showCheckout);
-            tg.MainButton.show();
+            // Главный экран
+            tgBtn.setText(`${t.mainBtnOrder} (${totalSum} ${t.currency})`);
+            tgBtn.show();
+            tgBtn.onClick(showCheckout);
         } else {
-            tg.MainButton.setText(`${t.mainBtnPay} ${totalSum} ${t.currency}`);
-            tg.MainButton.onClick(submitOrder);
-            tg.MainButton.show();
+            // Экран корзины
+            tgBtn.setText(`${t.mainBtnPay} ${totalSum} ${t.currency}`);
+            tgBtn.show();
+            tgBtn.onClick(submitOrder);
         }
     } else {
-        tg.MainButton.hide();
+        tgBtn.hide();
     }
 }
 
