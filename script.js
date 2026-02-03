@@ -302,7 +302,14 @@ function submitOrder() {
     };
 
     lastOrderData = dataToSend; // Сохраняем для PDF
-
+//G-Anltcs
+if (typeof gtag === 'function') {
+    gtag('event', 'purchase', {
+        'transaction_id': orderId,
+        'value': totalSum,
+        'currency': 'UAH'
+    });
+}
     // Отправка в Google Sheets
     fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
