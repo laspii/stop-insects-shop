@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Вказуємо шлях до карти сайту
+Sitemap: https://insect-free.com.ua/sitemap.xml
