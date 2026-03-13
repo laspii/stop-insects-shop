@@ -34,8 +34,10 @@ const translations = {
         doubtsTitle: "🤔 Маєте сумніви, чи засіб допоможе?",
         doubtsText: "Дізнайтеся, як він знищує яйця комах та чому це надійніше за виклик служби.",
         doubtsBtn: "Читати детальніше →",
-        priceDisclaimer: "* Ціни вказані без урахування вартості доставки та податків."
-    },
+        priceDisclaimer: "* Ціни вказані без урахування вартості доставки та податків.",
+        seoText: "Це повна версія магазину. Щоб оформити замовлення, перейдіть у наш Telegram-бот 👇",
+        seoBtn: "🤖 Відкрити в Telegram"
+},
     ru: {
         brand: "Служба восстановления дома",
         hero: "Мы возвращаем ощущение безопасности и контроля.",
@@ -61,8 +63,10 @@ const translations = {
         doubtsTitle: "🤔 Сомневаетесь, поможет ли средство?",
         doubtsText: "Узнайте, как оно уничтожает яйца насекомых и почему это надежнее вызова службы.",
         doubtsBtn: "Читать подробнее →",
-        priceDisclaimer: "* Цены указаны без учета стоимости доставки и налогов."
-    },
+        priceDisclaimer: "* Цены указаны без учета стоимости доставки и налогов.",
+        seoText: "Это полная версия магазина. Чтобы оформить заказ, перейдите в наш Telegram-бот 👇",
+        seoBtn: "🤖 Открыть в Telegram"
+},
     en: {
         brand: "Home Pest Control",
         hero: "We restore your sense of safety and control.",
@@ -88,7 +92,9 @@ const translations = {
         doubtsTitle: "🤔 Doubting if it works?",
         doubtsText: "Learn how it destroys insect eggs and why it's more reliable than calling a pest control service.",
         doubtsBtn: "Read more →",
-        priceDisclaimer: "* Prices do not include shipping costs and taxes."
+        priceDisclaimer: "* Prices do not include shipping costs and taxes.",
+        seoText: "This is the full version of the store. To place an order, please go to our Telegram bot 👇",
+        seoBtn: "🤖 Open in Telegram"
     }
 };
 
@@ -173,6 +179,11 @@ function setLanguage(lang) {
         document.getElementById('doubtsTitle').innerHTML = t.doubtsTitle;
         document.getElementById('doubtsText').textContent = t.doubtsText;
         document.getElementById('doubtsBtn').textContent = t.doubtsBtn;
+    }
+    
+    if(document.getElementById('seoText')) {
+        document.getElementById('seoText').textContent = t.seoText;
+        document.getElementById('seoBtn').textContent = t.seoBtn;
     }
     
     if(document.getElementById('priceDisclaimer')) {
