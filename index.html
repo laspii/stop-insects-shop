@@ -1,101 +1,113 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4W7FHP5VQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-M4W7FHP5VQ');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4W7FHP5VQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M4W7FHP5VQ');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <title>Засіб Метод від клопів та тарганів | Служба відновлення дому</title>
     <meta name="description" content="Оригінальний засіб Метод (Фентіон). Знищує клопів, тарганів та їхні яйця за 1 обробку. Безпечно, ефективно, дешевше за дезінсекторів. Доставка по Україні.">
+    
     <meta property="og:title" content="Служба відновлення дому | Засіб Метод">
     <meta property="og:description" content="Поверніть собі дім. Професійний засіб від клопів та тарганів.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/laspii/stop-insects-shop/main/flakon01.jpg"> <meta property="og:type" content="website">
+    <meta property="og:image" content="https://raw.githubusercontent.com/laspii/stop-insects-shop/main/flakon01.jpg"> 
+    <meta property="og:type" content="website">
+    
     <link rel="icon" type="image/png" href="favicon.png">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css">
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script defer src="script.js?v=6"></script>
 </head>
 <body>
 
     <header class="header">
         <div class="brand-title" id="brandTitle">Служба відновлення дому</div>
         <div class="lang-switch">
-            <button class="lang-btn active" onclick="setLanguage('uk')">UA</button>
-            <button class="lang-btn" onclick="setLanguage('ru')">RU</button>
+            <button type="button" class="lang-btn active" onclick="setLanguage('uk')">UA</button>
+            <button type="button" class="lang-btn" onclick="setLanguage('ru')">RU</button>
         </div>
     </header>
 
-    <div id="main-view">
-        <div class="hero-text" id="heroText">
-            Ми повертаємо відчуття безпеки та контролю.
-        </div>
-        <div class="pdf-container">
-            <div class="pdf-icon">
-                <img src="https://img.icons8.com/ios/50/3b82f6/pdf--v1.png" alt="PDF" width="40" height="40">
+    <main>
+        <div id="main-view">
+            <div class="hero-text" id="heroText">
+                Ми повертаємо відчуття безпеки та контролю.
             </div>
-            <div class="pdf-info">
-                <h3 id="pdfTitle">Звіт про випробування</h3>
-                <p id="pdfDesc">Офіційний документ: як "Метод" знищує комах за 4 хвилини.</p>
-                <a href="Report_Method_against_bedbugs.pdf" target="_blank" class="pdf-download-btn" id="pdfBtn">
-                    📄 Завантажити PDF
+            
+            <div class="pdf-container">
+                <div class="pdf-icon">
+                    <img src="https://img.icons8.com/ios/50/3b82f6/pdf--v1.png" alt="PDF" width="40" height="40">
+                </div>
+                <div class="pdf-info">
+                    <h3 id="pdfTitle">Звіт про випробування</h3>
+                    <p id="pdfDesc">Офіційний документ: як "Метод" знищує комах за 4 хвилини.</p>
+                    <a href="Report_Method_against_bedbugs.pdf" target="_blank" class="pdf-download-btn" id="pdfBtn">
+                        📄 Завантажити PDF
+                    </a>
+                </div>
+            </div>
+            
+            <div class="product-grid" id="productList"></div>
+        </div>
+
+        <div id="seo-banner" class="hidden">
+            <div style="background: #e0f2fe; border: 1px solid #3b82f6; border-radius: 12px; padding: 15px; margin: 15px; text-align: center;">
+                <p style="margin: 0 0 10px 0; font-size: 14px; color: #1e3a8a;">
+                    Це повна версія магазину. Щоб оформити замовлення, перейдіть у наш Telegram-бот 👇
+                </p>
+                <a href="https://t.me/InsectFreeHouseUA_bot" target="_blank" 
+                   style="display: inline-block; background: #3b82f6; color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; font-size: 14px;">
+                    🤖 Відкрити в Telegram
                 </a>
             </div>
         </div>
-        <div class="product-grid" id="productList"></div>
-    </div>
-
-    <div id="seo-banner" class="hidden">
-        <div style="background: #e0f2fe; border: 1px solid #3b82f6; border-radius: 12px; padding: 15px; margin: 15px; text-align: center;">
-            <p style="margin: 0 0 10px 0; font-size: 14px; color: #1e3a8a;">
-                Це повна версія магазину. Щоб оформити замовлення, перейдіть у наш Telegram-бот 👇
-            </p>
-            <a href="https://t.me/InsectFreeHouseUA_bot" target="_blank" 
-               style="display: inline-block; background: #3b82f6; color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; font-size: 14px;">
-                🤖 Відкрити в Telegram
-            </a>
-        </div>
-    </div>
-    
-    <div id="checkout-view" class="hidden">
-        <h2 id="checkoutTitle">Оформлення замовлення</h2>
         
-        <div class="cart-summary" id="cartSummary"></div>
+        <div id="checkout-view" class="hidden">
+            <h2 id="checkoutTitle">Оформлення замовлення</h2>
+            
+            <div class="cart-summary" id="cartSummary"></div>
 
-        <form id="orderForm">
-            <h3 id="contactTitle">Контактні дані</h3>
-            <input type="tel" id="phone" placeholder="+380..." required>
-            <input type="text" id="firstName" placeholder="Ім'я" required>
-            <input type="text" id="lastName" placeholder="Прізвище" required>
+            <form id="orderForm">
+                <h3 id="contactTitle">Контактні дані</h3>
+                <input type="tel" id="phone" placeholder="+380..." required>
+                <input type="text" id="firstName" placeholder="Ім'я" required>
+                <input type="text" id="lastName" placeholder="Прізвище" required>
 
-            <h3 id="deliveryTitle">Доставка Нова Пошта</h3>
-            <input type="text" id="cityInput" placeholder="Місто (напр. Харків)" required>
-            <input type="text" id="branchInput" placeholder="№ Відділення або адреса" required>
-        </form>
-    </div>
+                <h3 id="deliveryTitle">Доставка Нова Пошта</h3>
+                <input type="text" id="cityInput" placeholder="Місто (напр. Харків)" required>
+                <input type="text" id="branchInput" placeholder="№ Відділення або адреса" required>
+            </form>
+        </div>
 
-    <div id="success-view" class="hidden" style="text-align: center; padding: 40px 20px;">
-        <div style="font-size: 50px; margin-bottom: 20px;">✅</div>
-        <h2 id="successTitle">Замовлення прийнято!</h2>
-        <p id="successDesc">Менеджер зв'яжеться з вами найближчим часом.</p>
-        <button onclick="downloadPDF()" class="add-btn" style="margin-top: 20px; background-color: #ef4444;">
-            📄 Завантажити чек (PDF)
-        </button>
-        <br><br>
-        <button onclick="closeApp()" class="lang-btn" style="font-size: 14px; text-decoration: underline;">
-            Закрити магазин
-        </button>
-    </div>
+        <div id="success-view" class="hidden" style="text-align: center; padding: 40px 20px;">
+            <div style="font-size: 50px; margin-bottom: 20px;">✅</div>
+            <h2 id="successTitle">Замовлення прийнято!</h2>
+            <p id="successDesc">Менеджер зв'яжеться з вами найближчим часом.</p>
+            <button type="button" onclick="downloadPDF()" class="add-btn" style="margin-top: 20px; background-color: #ef4444;">
+                📄 Завантажити чек (PDF)
+            </button>
+            <br><br>
+            <button type="button" onclick="closeApp()" class="lang-btn" style="font-size: 14px; text-decoration: underline;">
+                Закрити магазин
+            </button>
+        </div>
 
-    <div id="image-viewer" class="hidden" onclick="closeImage()">
-        <span class="close-btn">&times;</span>
-        <img id="full-image" src="">
-    </div>
-    <script src="script.js?v=5"></script>
+        <div id="image-viewer" class="hidden" onclick="closeImage()">
+            <span class="close-btn">&times;</span>
+            <img id="full-image" src="" alt="Full size product">
+        </div>
+    </main>
+
 </body>
 </html>
