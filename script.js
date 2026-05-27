@@ -100,7 +100,7 @@ const translations = {
 
 const products = [
     {
-        id: 'test', price: 150, tag: { uk: 'Тест', ru: 'Тест', en: 'Test' },
+        id: 'test', price: 170, tag: { uk: 'Тест', ru: 'Тест', en: 'Test' },
         img: 'flakon01.jpg',
         title: { uk: 'Один флакон, тестовий', ru: 'Один флакон, тестовый', en: 'One bottle, test' },
         desc: { 
@@ -111,7 +111,7 @@ const products = [
         marketing: { uk: 'Протестувати.', ru: 'Протестировать.', en: 'Test it out.' }
     },
     {
-        id: 'basic', price: 550, tag: { uk: 'Старт', ru: 'Старт', en: 'Basic' },
+        id: 'basic', price: 680, tag: { uk: 'Старт', ru: 'Старт', en: 'Basic' },
         img: 'flakon05.jpg',
         title: { uk: 'Набір "Базовий"', ru: 'Набор "Базовый"', en: 'Basic Kit' },
         desc: { 
@@ -122,7 +122,7 @@ const products = [
         marketing: { uk: 'Швидкий старт.', ru: 'Быстрый старт.', en: 'Quick start.' }
     },
     {
-        id: 'reinforced', price: 1000, tag: { uk: 'Хіт', ru: 'Хит', en: 'Best' },
+        id: 'reinforced', price: 1250, tag: { uk: 'Хіт', ru: 'Хит', en: 'Best' },
         img: 'flakon10.jpg',
         title: { uk: 'Набір "Посилений"', ru: 'Набор "Усиленный"', en: 'Reinforced Kit' },
         desc: { 
@@ -133,18 +133,11 @@ const products = [
         marketing: { uk: 'Максимальна сила.', ru: 'Максимальная сила.', en: 'Maximum power.' }
     },
     {
-        id: 'pro', price: 1800, tag: { uk: 'Pro', ru: 'Pro', en: 'Pro' },
+        id: 'pro', price: 2300, tag: { uk: 'Pro', ru: 'Pro', en: 'Pro' },
         img: 'flakon20.jpg',
         title: { uk: 'Набір "Професійний"', ru: 'Набор "Профессиональный"', en: 'Professional Kit' },
         desc: { uk: '20 флаконів. Тотальна зачистка.', ru: '20 флаконов. Тотальная зачистка.', en: '20 bottles. Total clearance.' },
         marketing: { uk: 'Повний контроль.', ru: 'Полный контроль.', en: 'Full control.' }
-    },
-    {
-        id: 'respirator', price: 500, tag: { uk: 'Захист', ru: 'Защита', en: 'Safety' },
-        img: 'respirator.webp',
-        title: { uk: 'Респіратор', ru: 'Респиратор', en: 'Respirator mask' },
-        desc: { uk: "Захист дихання.", ru: 'Защита дыхания.', en: 'Respiratory protection.' },
-        marketing: { uk: 'Безпека.', ru: 'Безопасность.', en: 'Safety first.' }
     }
 ];
 
